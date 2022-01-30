@@ -29,4 +29,20 @@ class ProductTest {
     @Test
     void setPrice() {
     }
+
+    @Test
+    void matches() {
+    }
+
+    @Test
+    void testEquals() {
+    }
+
+    @Test
+    void testHashCode() {
+    }
+
+    @Test
+    void testToString() {
+    }
 }

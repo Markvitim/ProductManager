@@ -2,10 +2,13 @@ package ru.netology.domain;
 
 import java.util.Objects;
 
+
 public class Product {
     private int id;
     private String name;
     private int price;
+    private Product product;
+
 
     public Product() {
     }
@@ -38,6 +41,25 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public boolean matches(String search) {
+        if (product instanceof Book) { // если в параметре product лежит объект класса Book
+            Book book = (Book) product; // положем его в переменную типа Book чтобы пользоваться методами класса Book
+            if (book.getName().contains(search)) {
+                return true;
+            }
+            return false;
+
+        }
+        if (product instanceof Smartphone) { // если в параметре product лежит объект класса Smartphone
+            Smartphone smartphone = (Smartphone) product; // положем его в переменную типа Smartphone чтобы пользоваться методами класса Book
+            if (smartphone.getName().contains(search)) {
+                return true;
+            }
+
+        }
+        return false;
     }
 
     @Override

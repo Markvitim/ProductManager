@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Book extends Product {
     private String author;
+    private Book book;
 
     public Book() {
         super();
@@ -46,4 +47,16 @@ public class Book extends Product {
                 "author='" + author + '\'' +
                 '}';
     }
+
+    public boolean matches(String search){
+        if (super.matches(search)){
+            return true;
+        }
+        if (book.getAuthor().contains(search)) { // проверим есть ли поисковое слово в данных об авторе
+            return true;
+        }
+        return false;
+    }
+
+
 }
