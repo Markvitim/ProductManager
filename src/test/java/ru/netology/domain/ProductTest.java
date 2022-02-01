@@ -1,10 +1,12 @@
 package ru.netology.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ProductTest {
+    //    private Smartphone fff = new Smartphone(4, "FFF", 1000, "China");
+    private Book first = new Book(1, "Учебник", 300, "India");
+
 
     @Test
     void getId() {
@@ -31,18 +33,12 @@ class ProductTest {
     }
 
     @Test
-    void matches() {
-    }
-
-    @Test
-    void testEquals() {
-    }
-
-    @Test
-    void testHashCode() {
-    }
-
-    @Test
-    void testToString() {
+    void matchesName() {
+        Product product = new Smartphone();
+        product.setId(0);
+        product.setName("NNN");
+        product.setPrice(1000);
+        product.matches("NNN");
+        Assertions.assertTrue(true);
     }
 }

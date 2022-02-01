@@ -3,7 +3,7 @@ package ru.netology.domain;
 import java.util.Objects;
 
 public class Smartphone extends Product {
-    private Smartphone smartphone ;
+    private Smartphone smartphone;
     private String manufacturer;
 
     public Smartphone() {
@@ -48,13 +48,8 @@ public class Smartphone extends Product {
                 '}';
     }
 
+    @Override
     public boolean matches(String search) {
-        if (super.matches(search)) {
-            return true;
-        }
-        if (smartphone.getManufacturer().contains(search)) {
-            return true;
-        }
-        return false;
+        return super.matches(search) || this.manufacturer.contains(search);
     }
 }

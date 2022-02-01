@@ -2,7 +2,6 @@ package ru.netology.domain;
 
 import java.util.Objects;
 
-
 public class Product {
     private int id;
     private String name;
@@ -43,36 +42,22 @@ public class Product {
         this.price = price;
     }
 
+
     public boolean matches(String search) {
-        if (product instanceof Book) { // если в параметре product лежит объект класса Book
-            Book book = (Book) product; // положем его в переменную типа Book чтобы пользоваться методами класса Book
-            if (book.getName().contains(search)) {
-                return true;
-            }
-            return false;
-
-        }
-        if (product instanceof Smartphone) { // если в параметре product лежит объект класса Smartphone
-            Smartphone smartphone = (Smartphone) product; // положем его в переменную типа Smartphone чтобы пользоваться методами класса Book
-            if (smartphone.getName().contains(search)) {
-                return true;
-            }
-
-        }
-        return false;
+        return this.name.contains(search);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return id == product.id && price == product.price && Objects.equals(name, product.name);
+        Product product1 = (Product) o;
+        return id == product1.id && price == product1.price && Objects.equals(name, product1.name) && Objects.equals(product, product1.product);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price);
+        return Objects.hash(id, name, price, product);
     }
 
     @Override
@@ -81,6 +66,7 @@ public class Product {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", product=" + product +
                 '}';
     }
 }

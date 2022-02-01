@@ -10,13 +10,13 @@ public class ProductRepository {
         Product[] tmp = new Product[items.length + 1];
         System.arraycopy(items, 0, tmp, 0, items.length);
         tmp[tmp.length - 1] = item;
-        items = tmp;
+        this.items = tmp;
     }
 
 
     public Product[] findAll() {
 
-        return items;
+        return this.items;
     }
 
     public void removeById(int idToRemove) {
@@ -28,7 +28,7 @@ public class ProductRepository {
                 copyTo++;
             }
         }
-        items = tmp;
+        this.items = tmp;
     }
 
     public Product findById(int id) {

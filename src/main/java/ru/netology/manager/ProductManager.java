@@ -6,9 +6,13 @@ import ru.netology.domain.Smartphone;
 import ru.netology.repository.ProductRepository;
 
 public class ProductManager {
-    private ProductRepository repository = new ProductRepository();
+    private ProductRepository repository  = new ProductRepository();
 
     public ProductManager() {
+    }
+
+    public ProductManager(ProductRepository repository) {
+        this.repository = repository;
     }
 
     public void add(Product product) {
@@ -32,27 +36,6 @@ public class ProductManager {
         return result;
     }
 
-//    public boolean matches(Product product, String search) {
-//        if (product instanceof Book) { // если в параметре product лежит объект класса Book
-//            Book book = (Book) product; // положем его в переменную типа Book чтобы пользоваться методами класса Book
-//            if (book.getAuthor().contains(search)) { // проверим есть ли поисковое слово в данных об авторе
-//                return true;
-//            }
-//            if (book.getName().contains(search)) {
-//                return true;
-//            }
-//        }
-//        if (product instanceof Smartphone) { // если в параметре product лежит объект класса Smartphone
-//            Smartphone smartphone = (Smartphone) product; // положем его в переменную типа Smartphone чтобы пользоваться методами класса Book
-//            if (smartphone.getManufacturer().contains(search)) { // проверим есть ли поисковое слово в данных об авторе
-//                return true;
-//            }
-//            if (smartphone.getName().contains(search)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 }
 
 

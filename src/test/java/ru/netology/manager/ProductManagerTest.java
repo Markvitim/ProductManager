@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
+import ru.netology.repository.ProductRepository;
 
 class ProductManagerTest {
-    private ProductManager manager = new ProductManager();
+    private ProductManager manager = new ProductManager(new ProductRepository());
     private Book coreJava = new Book();
     private Book first = new Book(1, "Учебник", 300, "India");
     private Book second = new Book(2, "FFF", 250, "India");
@@ -56,8 +57,4 @@ class ProductManagerTest {
         Product[] actual = manager.searchBy("ghvbvhf");
         Assertions.assertArrayEquals(expected, actual);
     }
-//
-//    @Test
-//    void matches() {
-//    }
 }

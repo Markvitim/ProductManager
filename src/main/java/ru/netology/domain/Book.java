@@ -48,15 +48,8 @@ public class Book extends Product {
                 '}';
     }
 
-    public boolean matches(String search){
-        if (super.matches(search)){
-            return true;
-        }
-        if (book.getAuthor().contains(search)) { // проверим есть ли поисковое слово в данных об авторе
-            return true;
-        }
-        return false;
+    @Override
+    public boolean matches(String search) {
+        return super.matches(search) || this.author.contains(search);
     }
-
-
 }
